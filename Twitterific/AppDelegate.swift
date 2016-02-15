@@ -49,9 +49,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             TwitterClient.sharedInstance.requestSerializer.saveAccessToken(accessToken)
             
             TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) in
-                
+                    print("user: \(response)")
                 }, failure: { (operation: NSURLSessionDataTask?, error: NSError) in
-
+                    print("error getting current user")
             })
 
         }) { (error: NSError!) in
