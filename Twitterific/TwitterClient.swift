@@ -23,6 +23,19 @@ class TwitterClient: BDBOAuth1SessionManager {
             }
         return Static.instance
     }
+    
+    func homeTimeLineWithParams(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
+        TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) in
+            // print("user: \(response!)")
+            let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+            completion(tweets: tweets, error: nil)
+            
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError) in
+                print("error getting current user")
+                completion(tweets: nil, error: error)
+        })
+ 
+    }
 
     func loginWithCompletion(completion: (user: User?, error: NSError?) -> ()) {
         loginCompletion = completion
@@ -57,17 +70,6 @@ class TwitterClient: BDBOAuth1SessionManager {
                     print("error getting current user")
                     self.loginCompletion?(user: nil, error: error )
 
-            })
-            
-            TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) in
-                // print("user: \(response!)")
-                let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
-                
-                for tweet in tweets {
-                    print("text: \(tweet.text), createdAt: \(tweet.createdAt)")
-                }
-                }, failure: { (operation: NSURLSessionDataTask?, error: NSError) in
-                    print("error getting current user")
             })
             
         }) { (error: NSError!) in

@@ -35,10 +35,10 @@
             </objects>
             <point key="canvasLocation" x="109.86666666666666" y="288.25999999999999"/>
         </scene>
-        <!--View Controller-->
+        <!--Tweets View Controller-->
         <scene sceneID="xuU-eR-MOt">
             <objects>
-                <viewController storyboardIdentifier="TweetsViewController" id="IVe-SY-XGD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TweetsViewController" id="IVe-SY-XGD" customClass="TweetsViewController" customModule="Twitterific" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5aj-2w-BKc"/>
                         <viewControllerLayoutGuide type="bottom" id="Zgx-lA-Flq"/>
@@ -46,6 +46,15 @@
                     <view key="view" contentMode="scaleToFill" id="eC6-qI-976">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="soe-R2-eaU">
+                                <rect key="frame" x="136" y="202" width="48" height="30"/>
+                                <state key="normal" title="Logout"/>
+                                <connections>
+                                    <action selector="onLogout:" destination="IVe-SY-XGD" eventType="touchUpInside" id="gbx-va-91x"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
