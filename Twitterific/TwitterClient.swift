@@ -49,7 +49,8 @@ class TwitterClient: BDBOAuth1SessionManager {
             
             TwitterClient.sharedInstance.GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) in
                 // print("user: \(response!)")
-                var user = User(dictionary: response as! NSDictionary)
+                let user = User(dictionary: response as! NSDictionary)
+                User.currentUser = user
                 print("user: \(user.name)")
                 self.loginCompletion?(user: user, error: nil)
                 }, failure: { (operation: NSURLSessionDataTask?, error: NSError) in
@@ -60,7 +61,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             
             TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) in
                 // print("user: \(response!)")
-                var tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
+                let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
                 
                 for tweet in tweets {
                     print("text: \(tweet.text), createdAt: \(tweet.createdAt)")

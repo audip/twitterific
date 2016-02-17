@@ -38,7 +38,7 @@
         <!--View Controller-->
         <scene sceneID="xuU-eR-MOt">
             <objects>
-                <viewController id="IVe-SY-XGD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TweetsViewController" id="IVe-SY-XGD" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5aj-2w-BKc"/>
                         <viewControllerLayoutGuide type="bottom" id="Zgx-lA-Flq"/>

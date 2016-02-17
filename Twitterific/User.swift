@@ -29,15 +29,15 @@ class User: NSObject {
     
     class var currentUser: User? {
         get {
-            if currentUser == nil {
-                var data = NSUserDefaults.standardUserDefaults().objectForKey(currentUserKey) as NSData
+            if _currentUser == nil {
+                let data = NSUserDefaults.standardUserDefaults().objectForKey(currentUserKey) as? NSData
                 if data != nil {
                     let dictionary:NSDictionary = NSKeyedUnarchiver.unarchiveObjectWithData(data!)! as! NSDictionary
                     _currentUser = User(dictionary: dictionary)
                 }
             }
             return _currentUser
-        }1
+        }
         set(user) {
             _currentUser = user
         
