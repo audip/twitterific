@@ -51,11 +51,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="131" id="ieI-NA-Oic">
-                                        <rect key="frame" x="0.0" y="92" width="320" height="131"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="200" id="ieI-NA-Oic" customClass="TweetCell" customModule="Twitterific" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="320" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ieI-NA-Oic" id="Btd-AN-ekv">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="130.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MIn-NS-fuL">
@@ -134,6 +134,7 @@
                                             <constraints>
                                                 <constraint firstItem="hRg-1g-OTw" firstAttribute="leading" secondItem="Ao1-wJ-2vg" secondAttribute="trailing" constant="24" id="0fr-r9-N7T"/>
                                                 <constraint firstItem="tXm-uc-xJd" firstAttribute="leading" secondItem="Btd-AN-ekv" secondAttribute="leading" constant="8" id="27h-Jl-aoR"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vVx-1Y-Os1" secondAttribute="bottom" constant="12" id="6Wg-f0-Clp"/>
                                                 <constraint firstItem="MiQ-eC-84i" firstAttribute="centerY" secondItem="vVx-1Y-Os1" secondAttribute="centerY" id="AJJ-a1-A7z"/>
                                                 <constraint firstItem="ArB-9X-Pej" firstAttribute="leading" secondItem="Btd-AN-ekv" secondAttribute="leading" constant="8" id="AeX-gP-XWK"/>
                                                 <constraint firstItem="DPg-zQ-9Ih" firstAttribute="top" secondItem="Btd-AN-ekv" secondAttribute="top" constant="4" id="DLJ-F7-mrT"/>
@@ -156,6 +157,13 @@
                                                 <constraint firstItem="gie-IO-HHk" firstAttribute="top" secondItem="Btd-AN-ekv" secondAttribute="top" constant="4" id="y3M-J2-JZO"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="nameLabel" destination="DPg-zQ-9Ih" id="xrj-nd-sUH"/>
+                                            <outlet property="profileImageView" destination="MIn-NS-fuL" id="bDf-11-w1Y"/>
+                                            <outlet property="timestampLabel" destination="tXm-uc-xJd" id="45n-pF-y5J"/>
+                                            <outlet property="tweetTextLabel" destination="ArB-9X-Pej" id="VSr-P3-VT4"/>
+                                            <outlet property="usernameLabel" destination="Ijp-ny-CtM" id="Ii5-QV-h5y"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -167,7 +175,7 @@
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="soe-R2-eaU">
                                 <rect key="frame" x="16" y="7" width="48" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" title="Logout"/>
                                 <connections>
                                     <action selector="onLogout:" destination="IVe-SY-XGD" eventType="touchUpInside" id="gbx-va-91x"/>
@@ -176,6 +184,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Tweet" id="G4u-jS-cY7"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="D2A-7j-0DC" id="Euu-Ec-REA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scO-p7-dvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

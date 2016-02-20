@@ -7,9 +7,30 @@
 //
 
 import UIKit
+import AFNetworking
 
 class TweetCell: UITableViewCell {
 
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var tweetTextLabel: UILabel!
+    @IBOutlet weak var timestampLabel: UILabel!
+    
+    var tweet: Tweet! {
+        didSet{
+            //Configure images
+            if let imageURL = tweet.user?.profileImageUrl {
+                profileImageView.setImageWithURL(NSURL(string: imageURL)!)
+            }
+        nameLabel.text = tweet.user!.screenname!
+        usernameLabel.text = tweet.user!.name!
+        tweetTextLabel.text = tweet.text!
+        timestampLabel.text = "\(tweet.createdAt)"
+        }
+
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
