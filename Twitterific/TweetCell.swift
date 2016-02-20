@@ -23,10 +23,10 @@ class TweetCell: UITableViewCell {
             if let imageURL = tweet.user?.profileImageUrl {
                 profileImageView.setImageWithURL(NSURL(string: imageURL)!)
             }
-        nameLabel.text = tweet.user!.screenname!
-        usernameLabel.text = tweet.user!.name!
+        nameLabel.text = tweet.user!.name!
+        usernameLabel.text = "@\(tweet.user!.screenname!)"
         tweetTextLabel.text = tweet.text!
-        timestampLabel.text = "\(tweet.createdAt)"
+        timestampLabel.text = "\(tweet.createdAt!)"
         }
 
     }
