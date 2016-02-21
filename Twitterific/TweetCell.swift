@@ -16,8 +16,10 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var tweetTextLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
+    
     @IBOutlet weak var retweetCountLabel: UILabel!
     @IBOutlet weak var favoriteCountLabel: UILabel!
+    
     @IBOutlet weak var retweetButton: UIButton!
     @IBOutlet weak var favoriteButton: UIButton!
     
@@ -59,12 +61,13 @@ class TweetCell: UITableViewCell {
         print("Retweet button clicked")
         print("Retweet Status: \(retweetStatus)")
         if retweetStatus == false{
-            retweetButton.setImage(UIImage(named:"heart-on.png"),forState:UIControlState.Highlighted)
+            let retweetimage = UIImage(named: "retweet-on.png")! as UIImage
+            self.retweetButton.setImage(retweetimage, forState: UIControlState.Highlighted)
             retweetCountLabel.text = "\(Int(retweetCountLabel.text!)! + 1)"
             retweetStatus = true
         }
         else {
-            retweetButton.setImage(UIImage(named:"heart.png"),forState:UIControlState.Normal)
+            retweetButton.setImage(UIImage(named:"heart.png"),forState: UIControlState.Normal)
             retweetCountLabel.text = "\(Int(retweetCountLabel.text!)! - 1)"
             retweetStatus = false
         }
@@ -74,7 +77,7 @@ class TweetCell: UITableViewCell {
         print("Favorite button clicked")
         print("Favorite Status: \(favoriteStatus)")
         if favoriteStatus == false{
-            favoriteButton.setImage(UIImage(named:"heart-on.png"),forState: UIControlState.Highlighted)
+            self.favoriteButton.setImage(UIImage(named:"heart-on.png"),forState: UIControlState.Highlighted)
             favoriteCountLabel.text = "\(Int(favoriteCountLabel.text!)! + 1)"
             favoriteStatus = true
         }
