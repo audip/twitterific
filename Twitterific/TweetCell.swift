@@ -16,6 +16,7 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var tweetTextLabel: UILabel!
     @IBOutlet weak var timestampLabel: UILabel!
+    @IBOutlet weak var retweetCountLabel: UILabel!
     
     var tweet: Tweet! {
         didSet{
@@ -29,6 +30,7 @@ class TweetCell: UITableViewCell {
         usernameLabel.text = "@\(tweet.user!.screenname!)"
         tweetTextLabel.text = tweet.text!
         timestampLabel.text = "\(tweet.createdAt!)"
+        retweetCountLabel.text = "\(tweet.retweetedCount!)"
         }
 
     }
