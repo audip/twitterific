@@ -15,6 +15,7 @@ class Tweet: NSObject {
     var createdAt: NSDate?
     var retweetedCount: Int?
     var retweetedStatus: Bool?
+    var favoriteCount: Int?
     
     init(dictionary: NSDictionary) {
         user = User(dictionary: dictionary["user"] as! NSDictionary)
@@ -22,6 +23,7 @@ class Tweet: NSObject {
         createdAtString = dictionary["created_at"] as? String
         retweetedCount = dictionary["retweet_count"] as? Int
         retweetedStatus = dictionary["retweeted"] as? Bool
+        favoriteCount = dictionary["favorite_count"] as? Int
         
         let formatter = NSDateFormatter()
         formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
