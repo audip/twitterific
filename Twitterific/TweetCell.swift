@@ -47,9 +47,11 @@ class TweetCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        favoriteButton.setImage(UIImage(named:"heart.png"), forState:UIControlState.Normal)
-        retweetButton.setImage(UIImage(named:"heart-on"), forState:UIControlState.Normal)
-        
+//        favoriteButton.setImage(UIImage(named:"heart.png"), forState:UIControlState.Normal)
+        retweetButton.setImage(UIImage(named:"retweet.png"), forState:UIControlState.Normal)
+        retweetButton.setImage(UIImage(named: "retweet-on.png"), forState: UIControlState.Selected)
+        favoriteButton.setImage(UIImage(named:"heart-on.png"),forState: UIControlState.Selected)
+        favoriteButton.setImage(UIImage(named:"heart.png"),forState: UIControlState.Normal)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -61,15 +63,15 @@ class TweetCell: UITableViewCell {
         print("Retweet button clicked")
         print("Retweet Status: \(retweetStatus)")
         if retweetStatus == false{
-            let retweetimage = UIImage(named: "retweet-on.png")! as UIImage
-            self.retweetButton.setImage(retweetimage, forState: UIControlState.Highlighted)
             retweetCountLabel.text = "\(Int(retweetCountLabel.text!)! + 1)"
             retweetStatus = true
+            self.retweetButton.selected = true
         }
         else {
-            retweetButton.setImage(UIImage(named:"heart.png"),forState: UIControlState.Normal)
+//            retweetButton.setImage(UIImage(named:"retweet.png"),forState: UIControlState.Normal)
             retweetCountLabel.text = "\(Int(retweetCountLabel.text!)! - 1)"
             retweetStatus = false
+            self.retweetButton.selected = false
         }
         
     }
@@ -77,14 +79,16 @@ class TweetCell: UITableViewCell {
         print("Favorite button clicked")
         print("Favorite Status: \(favoriteStatus)")
         if favoriteStatus == false{
-            self.favoriteButton.setImage(UIImage(named:"heart-on.png"),forState: UIControlState.Highlighted)
+//            favoriteButton.setImage(UIImage(named:"heart-on.png"),forState: UIControlState.Selected)
             favoriteCountLabel.text = "\(Int(favoriteCountLabel.text!)! + 1)"
             favoriteStatus = true
+            self.favoriteButton.selected = true
         }
         else {
-            favoriteButton.setImage(UIImage(named:"heart.png"),forState: UIControlState.Normal)
+//            favoriteButton.setImage(UIImage(named:"heart.png"),forState: UIControlState.Normal)
             favoriteCountLabel.text = "\(Int(favoriteCountLabel.text!)! - 1)"
             favoriteStatus = false
+            self.favoriteButton.selected = false
         }
     }
 
