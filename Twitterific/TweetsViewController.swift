@@ -22,8 +22,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
+        
+        // Initialize a UIRefreshControl
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refreshControlAction:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.insertSubview(refreshControl, atIndex: 0)
 
-        // Do any additional setup after loading the view.
         TwitterClient.sharedInstance.homeTimeLineWithParams(nil, completion: {(tweets, error) -> () in
             self.tweets = tweets
             self.tableView.reloadData()
@@ -42,8 +46,21 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier("TweetCell", forIndexPath: indexPath) as! TweetCell
         
         cell.tweet = tweets![indexPath.row]
+        cell.selectionStyle = .None
         
         return cell
+    }
+
+    func refreshControlAction(refreshControl: UIRefreshControl) {
+        
+        TwitterClient.sharedInstance.homeTimeLineWithParams(nil, completion: {(tweets, error) -> () in
+            self.tweets = tweets
+            self.tableView.reloadData()
+        })
+        
+        // Tell the refreshControl to stop spinning
+        refreshControl.endRefreshing()	
+
     }
 
     override func didReceiveMemoryWarning() {

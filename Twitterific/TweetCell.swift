@@ -22,7 +22,9 @@ class TweetCell: UITableViewCell {
             //Configure images
             if let imageURL = tweet.user?.profileImageUrl {
                 profileImageView.setImageWithURL(NSURL(string: imageURL)!)
-            }
+            } else {
+                profileImageView.image = nil
+        }
         nameLabel.text = tweet.user!.name!
         usernameLabel.text = "@\(tweet.user!.screenname!)"
         tweetTextLabel.text = tweet.text!
