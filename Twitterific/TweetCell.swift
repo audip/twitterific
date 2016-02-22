@@ -45,9 +45,13 @@ class TweetCell: UITableViewCell {
             
             if favoriteStatus == true {
                 self.favoriteButton.selected = true
+            } else {
+                self.favoriteButton.selected = false
             }
             if retweetStatus == true {
                 self.retweetButton.selected = true
+            } else {
+                self.retweetButton.selected = false
             }
         }
 
