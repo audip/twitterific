@@ -33,13 +33,22 @@ class TweetCell: UITableViewCell {
                 profileImageView.setImageWithURL(NSURL(string: imageURL)!)
             } else {
                 profileImageView.image = nil
-        }
-        nameLabel.text = tweet.user!.name!
-        usernameLabel.text = "@\(tweet.user!.screenname!)"
-        tweetTextLabel.text = tweet.text!
-        timestampLabel.text = "\(tweet.createdAt!)"
-        retweetCountLabel.text = "\(tweet.retweetedCount!)"
-        favoriteCountLabel.text = "\(tweet.favoriteCount!)"
+            }
+            nameLabel.text = tweet.user!.name!
+            usernameLabel.text = "@\(tweet.user!.screenname!)"
+            tweetTextLabel.text = tweet.text!
+            timestampLabel.text = "\(tweet.createdAt!)"
+            retweetCountLabel.text = "\(tweet.retweetedCount!)"
+            favoriteCountLabel.text = "\(tweet.favoriteCount!)"
+            self.favoriteStatus = tweet.favoriteStatus!
+            self.retweetStatus = tweet.retweetedStatus!
+            
+            if favoriteStatus == true {
+                self.favoriteButton.selected = true
+            }
+            if retweetStatus == true {
+                self.retweetButton.selected = true
+            }
         }
 
     }

@@ -68,7 +68,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="131" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="D2A-7j-0DC">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="200" id="ieI-NA-Oic" customClass="TweetCell" customModule="Twitterific" customModuleProvider="target">
@@ -225,7 +225,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="D2A-7j-0DC" firstAttribute="leading" secondItem="eC6-qI-976" secondAttribute="leading" id="3yz-p4-ZBf"/>
-                            <constraint firstItem="D2A-7j-0DC" firstAttribute="top" secondItem="eC6-qI-976" secondAttribute="top" id="Fhy-gM-EMr"/>
+                            <constraint firstItem="D2A-7j-0DC" firstAttribute="top" secondItem="eC6-qI-976" secondAttribute="top" constant="64" id="Fhy-gM-EMr"/>
                             <constraint firstItem="Zgx-lA-Flq" firstAttribute="top" secondItem="D2A-7j-0DC" secondAttribute="bottom" id="gr3-xx-qaV"/>
                             <constraint firstAttribute="trailing" secondItem="D2A-7j-0DC" secondAttribute="trailing" id="oZm-jt-Eae"/>
                         </constraints>
