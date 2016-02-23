@@ -37,7 +37,8 @@ class TweetCell: UITableViewCell {
             nameLabel.text = tweet.user!.name!
             usernameLabel.text = "@\(tweet.user!.screenname!)"
             tweetTextLabel.text = tweet.text!
-            timestampLabel.text = "\(tweet.createdAt!)"
+            //timestampLabel.text = "\(tweet.createdAt!)"
+            timestampLabel.text = "\(convertTimeToString(Int(NSDate().timeIntervalSinceDate(tweet.createdAt!))))"
             retweetCountLabel.text = "\(tweet.retweetedCount!)"
             favoriteCountLabel.text = "\(tweet.favoriteCount!)"
             self.favoriteStatus = tweet.favoriteStatus!
@@ -67,6 +68,19 @@ class TweetCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    func convertTimeToString(number: Int) -> String{
+        let day = number/86400
+        let hour = (number - day * 86400)/3600
+        let minute = (number - day * 86400 - hour * 3600)/60
+        if day != 0{
+            return String(day) + "d"
+        }else if hour != 0 {
+            return String(hour) + "h"
+        }else{
+            return String(minute) + "m"
+        }
+    }
+
     @IBAction func onRetweet(sender: AnyObject) {
         print("Retweet button clicked")
         print("Retweet Status: \(retweetStatus)")
