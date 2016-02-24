@@ -71,11 +71,11 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="200" id="ieI-NA-Oic" customClass="TweetCell" customModule="Twitterific" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="200" id="ieI-NA-Oic" customClass="TweetCell" customModule="Twitterific" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ieI-NA-Oic" id="Btd-AN-ekv">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MIn-NS-fuL">
@@ -104,7 +104,7 @@
                                                         <constraint firstAttribute="width" constant="25" id="pvz-tY-9T4"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="&quot;Beware,&quot; wrote the prophets of San Francisco, &quot;for what the sun giveth the wind taketh away&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="ArB-9X-Pej">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" misplaced="YES" text="&quot;Beware,&quot; wrote the prophets of San Francisco, &quot;for what the sun giveth the wind taketh away&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="ArB-9X-Pej">
                                                     <rect key="frame" x="13" y="56" width="304" height="47"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="47" id="n5h-xr-hnf"/>
@@ -157,7 +157,7 @@
                                                         <action selector="onRetweet:" destination="ieI-NA-Oic" eventType="touchUpInside" id="Y5Y-5Q-Ngh"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3m" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXm-uc-xJd">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="3m" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXm-uc-xJd">
                                                     <rect key="frame" x="266" y="12" width="41" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="15" id="RyM-d2-6T5"/>
@@ -207,6 +207,7 @@
                                             <outlet property="timestampLabel" destination="tXm-uc-xJd" id="45n-pF-y5J"/>
                                             <outlet property="tweetTextLabel" destination="ArB-9X-Pej" id="VSr-P3-VT4"/>
                                             <outlet property="usernameLabel" destination="Ijp-ny-CtM" id="Ii5-QV-h5y"/>
+                                            <segue destination="kDY-FT-zgR" kind="push" id="Sf3-K7-SR4"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -241,6 +242,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scO-p7-dvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1469" y="288"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="xdH-9O-GA9">
+            <objects>
+                <viewController id="kDY-FT-zgR" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4ey-sI-zjg"/>
+                        <viewControllerLayoutGuide type="bottom" id="YYh-tf-TUV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hap-6A-xKa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="nAi-hY-zJ3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cSm-4N-2gO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1883" y="288"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1YM-zL-VJH">
