@@ -24,9 +24,9 @@ class User: NSObject {
     var following_count: Int?
     var location: String?
     var profile_background_image_url: String?
-    var profile_image_url: String?
     var userID: String?
     var following: Bool?
+    var biographic: String?
     
     init(dictionary: NSDictionary) {
         self.dictionary = dictionary
@@ -35,12 +35,12 @@ class User: NSObject {
         screenname = dictionary["screen_name"] as? String
         profileImageUrl = dictionary["profile_image_url"] as? String
         tagline = dictionary["description"] as? String
-        tweets_count = dictionary["listed_count"] as? Int
+        tweets_count = dictionary["statuses_count"] as? Int
         followers_count = dictionary["followers_count"] as? Int
         following_count = dictionary["friends_count"] as? Int
         location = dictionary["location"] as? String
-        profile_image_url = dictionary["profile_image_url_https"] as? String
         profile_background_image_url = dictionary["profile_background_image_url_https"] as? String
+        biographic = dictionary["description"] as? String
 
         userID = dictionary["id_str"] as? String
         following = dictionary["following"] as? Bool
