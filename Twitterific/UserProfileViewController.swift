@@ -15,6 +15,8 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var tweetsCountLabel: UILabel!
     @IBOutlet weak var followingLabel: UILabel!
     @IBOutlet weak var followersLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
     var user: User!
     
@@ -27,6 +29,16 @@ class UserProfileViewController: UIViewController {
         tweetsCountLabel.text = "\(user.tweets_count!)"
         followingLabel.text = "\(user.following_count!)"
         followersLabel.text = "\(user.followers_count!)"
+        if let imageURL = user.profile_image_url {
+            profileImageView.setImageWithURL(NSURL(string: imageURL)!)
+        } else {
+            profileImageView.image = nil
+        }
+        if let imageURL = user.profile_background_image_url {
+            backgroundImageView.setImageWithURL(NSURL(string: imageURL)!)
+        } else {
+            backgroundImageView.image = nil
+        }
     }
 
     override func didReceiveMemoryWarning() {

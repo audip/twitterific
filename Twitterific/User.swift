@@ -24,6 +24,7 @@ class User: NSObject {
     var following_count: Int?
     var location: String?
     var profile_background_image_url: String?
+    var profile_image_url: String?
     var userID: String?
     var following: Bool?
     
@@ -38,6 +39,7 @@ class User: NSObject {
         followers_count = dictionary["followers_count"] as? Int
         following_count = dictionary["friends_count"] as? Int
         location = dictionary["location"] as? String
+        profile_image_url = dictionary["profile_image_url_https"] as? String
         profile_background_image_url = dictionary["profile_background_image_url_https"] as? String
 
         userID = dictionary["id_str"] as? String

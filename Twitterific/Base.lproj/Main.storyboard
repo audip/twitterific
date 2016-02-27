@@ -444,7 +444,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZT3-xR-Idb">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZT3-xR-Idb">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manchester United" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5n-Kx-daL">
@@ -456,18 +456,18 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="44J-xL-SmL">
+                                        <rect key="frame" x="0.0" y="0.0" width="321" height="120"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="321" id="BYR-5W-VjH"/>
+                                            <constraint firstAttribute="height" constant="120" id="FoH-d8-pUC"/>
+                                        </constraints>
+                                    </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="huj-sh-v6r">
                                         <rect key="frame" x="20" y="84" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="0SM-nR-Db6"/>
                                             <constraint firstAttribute="width" constant="70" id="VHu-Gm-9lV"/>
-                                        </constraints>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="44J-xL-SmL">
-                                        <rect key="frame" x="1" y="0.0" width="320" height="120"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="BYR-5W-VjH"/>
-                                            <constraint firstAttribute="height" constant="120" id="FoH-d8-pUC"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@ManUtd" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1XE-yR-JfV">
@@ -702,7 +702,7 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="U5n-Kx-daL" secondAttribute="trailing" constant="10" id="h3i-r9-u03"/>
                                     <constraint firstItem="NAj-dC-ylv" firstAttribute="leading" secondItem="kM9-Kb-UWf" secondAttribute="trailing" constant="10" id="k2h-f7-cqZ"/>
                                     <constraint firstItem="U5n-Kx-daL" firstAttribute="leading" secondItem="ZT3-xR-Idb" secondAttribute="leading" constant="20" id="mi6-Dp-O0s"/>
-                                    <constraint firstItem="44J-xL-SmL" firstAttribute="leading" secondItem="ZT3-xR-Idb" secondAttribute="leading" constant="1" id="o7I-Bz-ICj"/>
+                                    <constraint firstItem="44J-xL-SmL" firstAttribute="leading" secondItem="ZT3-xR-Idb" secondAttribute="leading" id="o7I-Bz-ICj"/>
                                     <constraint firstItem="huj-sh-v6r" firstAttribute="top" secondItem="ZT3-xR-Idb" secondAttribute="top" constant="84" id="pfk-XM-97t"/>
                                     <constraint firstItem="1XE-yR-JfV" firstAttribute="leading" secondItem="ZT3-xR-Idb" secondAttribute="leading" constant="20" id="q7L-ei-85b"/>
                                     <constraint firstItem="kM9-Kb-UWf" firstAttribute="leading" secondItem="Miz-e1-2kS" secondAttribute="trailing" constant="5" id="s1h-jA-Igp"/>
@@ -720,9 +720,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="v4W-Cy-gaa"/>
                     <connections>
+                        <outlet property="backgroundImageView" destination="44J-xL-SmL" id="OMO-8K-XLe"/>
                         <outlet property="followersLabel" destination="NAj-dC-ylv" id="TIi-4o-lRr"/>
                         <outlet property="followingLabel" destination="kM9-Kb-UWf" id="RJk-Kj-QbZ"/>
                         <outlet property="handleLabel" destination="1XE-yR-JfV" id="Lic-8l-QN9"/>
+                        <outlet property="profileImageView" destination="huj-sh-v6r" id="jv9-IN-zIC"/>
                         <outlet property="tweetsCountLabel" destination="Miz-e1-2kS" id="9i3-bh-wsu"/>
                         <outlet property="usernameLabel" destination="U5n-Kx-daL" id="aTg-2J-59K"/>
                     </connections>
