@@ -23,28 +23,28 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
         
-        let navigationBar = UINavigationBar(frame: CGRectMake(0, 0, self.view.frame.size.width, 64)) // Offset by 20 pixels vertically to take the status bar into account
-        
-        navigationBar.backgroundColor = UIColor.whiteColor()
-        navigationBar.delegate = self;
-        
-        // Create a navigation item with a title
-        let navigationItem = UINavigationItem()
-        navigationItem.title = "Home"
-        
-        // Create left and right button for navigation item
-        let leftButton =  UIBarButtonItem(title: "Logout", style:   UIBarButtonItemStyle.Plain, target: self, action: "onLogout:")
-        let rightButton = UIBarButtonItem(title: "Tweet", style: UIBarButtonItemStyle.Plain, target: self, action: "newTweet:")
-        
-        // Create two buttons for the navigation item
-        navigationItem.leftBarButtonItem = leftButton
-        navigationItem.rightBarButtonItem = rightButton
-        
-        // Assign the navigation item to the navigation bar
-        navigationBar.items = [navigationItem]
-        
-        // Make the navigation bar a subview of the current view controller
-        self.view.addSubview(navigationBar)
+//        let navigationBar = UINavigationBar(frame: CGRectMake(0, 0, self.view.frame.size.width, 64)) // Offset by 20 pixels vertically to take the status bar into account
+//        
+//        navigationBar.backgroundColor = UIColor.whiteColor()
+//        navigationBar.delegate = self;
+//        
+//        // Create a navigation item with a title
+//        let navigationItem = UINavigationItem()
+//        navigationItem.title = "Home"
+//        
+//        // Create left and right button for navigation item
+//        let leftButton =  UIBarButtonItem(title: "Logout", style:   UIBarButtonItemStyle.Plain, target: self, action: "onLogout:")
+//        let rightButton = UIBarButtonItem(title: "Tweet", style: UIBarButtonItemStyle.Plain, target: self, action: "newTweet:")
+//        
+//        // Create two buttons for the navigation item
+//        navigationItem.leftBarButtonItem = leftButton
+//        navigationItem.rightBarButtonItem = rightButton
+//        
+//        // Assign the navigation item to the navigation bar
+//        navigationBar.items = [navigationItem]
+//        
+//        // Make the navigation bar a subview of the current view controller
+//        self.view.addSubview(navigationBar)
         
         // Initialize a UIRefreshControl
         let refreshControl = UIRefreshControl()
@@ -98,6 +98,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
     
     func newTweet() {
+        
+    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPathForCell(cell)
+        let tweet = tweets![indexPath!.row]
+        
+        let tweetDetailsViewController = segue.destinationViewController as! TweetDetailsViewController
+        tweetDetailsViewController.tweet = tweet
         
     }
 
