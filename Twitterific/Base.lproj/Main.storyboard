@@ -331,6 +331,9 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="heart"/>
                                 <state key="selected" image="heart-on"/>
+                                <connections>
+                                    <action selector="onFavorite:" destination="kDY-FT-zgR" eventType="touchUpInside" id="szl-sk-M60"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IgG-il-pi9">
                                 <rect key="frame" x="90" y="283" width="30" height="30"/>
@@ -342,6 +345,9 @@
                                 </constraints>
                                 <state key="normal" title="Button" image="retweet"/>
                                 <state key="selected" image="retweet-on"/>
+                                <connections>
+                                    <action selector="onRetweet:" destination="kDY-FT-zgR" eventType="touchUpInside" id="UWa-S0-2Jc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yX-CI-lPd">
                                 <rect key="frame" x="240" y="283" width="30" height="30"/>

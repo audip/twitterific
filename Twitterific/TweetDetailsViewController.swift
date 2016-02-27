@@ -29,7 +29,8 @@ class TweetDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print(tweet)
+        self.retweetButton.selected = false
+        self.favoriteButton.selected = false
         
         if let imageURL = tweet.user!.profileImageUrl {
             profileImageView.setImageWithURL(NSURL(string: imageURL)!)
@@ -57,6 +58,31 @@ class TweetDetailsViewController: UIViewController {
             self.retweetButton.selected = false
         }
         
+    }
+    @IBAction func onRetweet(sender: AnyObject) {
+        if retweetStatus == false{
+            retweetLabel.text = "\(Int(retweetLabel.text!)! + 1)"
+            retweetStatus = true
+            self.retweetButton.selected = true
+        }
+        else {
+            retweetLabel.text = "\(Int(retweetLabel.text!)! - 1)"
+            retweetStatus = false
+            self.retweetButton.selected = false
+        }
+
+    }
+    @IBAction func onFavorite(sender: AnyObject) {
+        if favoriteStatus == false{
+            likeLabel.text = "\(Int(likeLabel.text!)! + 1)"
+            favoriteStatus = true
+            self.favoriteButton.selected = true
+        }
+        else {
+            likeLabel.text = "\(Int(likeLabel.text!)! - 1)"
+            favoriteStatus = false
+            self.favoriteButton.selected = false
+        }
     }
 
     override func didReceiveMemoryWarning() {
