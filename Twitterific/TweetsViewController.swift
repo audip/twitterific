@@ -100,6 +100,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func newTweet() {
         
     }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPathForCell(cell)
+        let tweet = tweets![indexPath!.row]
+        
+        let tweetDetailsViewController = segue.destinationViewController as! TweetDetailsViewController
+        tweetDetailsViewController.tweet = tweet
+        
+    }
 
     /*
     // MARK: - Navigation
