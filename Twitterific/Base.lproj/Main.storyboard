@@ -79,15 +79,9 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MIn-NS-fuL">
-                                                    <rect key="frame" x="13" y="12" width="40" height="40"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="GZc-CY-g0Q"/>
-                                                        <constraint firstAttribute="width" constant="40" id="MFp-7H-Xjf"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Ryan Greenberg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPg-zQ-9Ih">
                                                     <rect key="frame" x="61" y="12" width="118" height="18"/>
+                                                    <gestureRecognizers/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                                     <color key="textColor" red="0.16078431372549018" green="0.18431372549019609" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -107,6 +101,7 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="252" text="&quot;Beware,&quot; wrote the prophets of San Francisco, &quot;for what the sun giveth the wind taketh away&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="ArB-9X-Pej">
                                                     <rect key="frame" x="13" y="56" width="304" height="47"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="47" id="n5h-xr-hnf"/>
                                                     </constraints>
@@ -168,6 +163,14 @@
                                                     <color key="textColor" red="0.40000000000000002" green="0.45882352941176469" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MIn-NS-fuL">
+                                                    <rect key="frame" x="13" y="12" width="40" height="40"/>
+                                                    <gestureRecognizers/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="40" id="GZc-CY-g0Q"/>
+                                                        <constraint firstAttribute="width" constant="40" id="MFp-7H-Xjf"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vVx-1Y-Os1" secondAttribute="bottom" constant="8" id="6Wg-f0-Clp"/>
@@ -198,6 +201,7 @@
                                                 <constraint firstItem="DPg-zQ-9Ih" firstAttribute="leading" secondItem="MIn-NS-fuL" secondAttribute="trailing" constant="8" id="x7u-0g-4Jj"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="favoriteButton" destination="V03-Uq-xgh" id="MYi-nR-YEw"/>
                                             <outlet property="favoriteCountLabel" destination="tDb-2K-ZqD" id="bHq-dc-Ink"/>
@@ -208,7 +212,6 @@
                                             <outlet property="timestampLabel" destination="tXm-uc-xJd" id="45n-pF-y5J"/>
                                             <outlet property="tweetTextLabel" destination="ArB-9X-Pej" id="VSr-P3-VT4"/>
                                             <outlet property="usernameLabel" destination="Ijp-ny-CtM" id="Ii5-QV-h5y"/>
-                                            <segue destination="kDY-FT-zgR" kind="push" id="Sf3-K7-SR4"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -243,6 +246,8 @@
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="tableView" destination="D2A-7j-0DC" id="Euu-Ec-REA"/>
+                        <segue destination="IVX-6Q-Xvj" kind="push" identifier="UserProfile" id="zbY-dc-pet"/>
+                        <segue destination="kDY-FT-zgR" kind="push" identifier="TweetDetails" id="E7h-Qj-TZI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="scO-p7-dvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -425,6 +430,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cSm-4N-2gO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1993" y="-66"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="wi8-M3-b7u">
+            <objects>
+                <viewController id="IVX-6Q-Xvj" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wij-1y-5qA"/>
+                        <viewControllerLayoutGuide type="bottom" id="mCG-9W-6QJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="D2B-Lx-Pq3">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="v4W-Cy-gaa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xXm-1f-5E9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1993" y="611"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1YM-zL-VJH">
