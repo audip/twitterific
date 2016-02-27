@@ -537,8 +537,8 @@
                                         <color key="textColor" red="0.40000000000000002" green="0.45882352939999999" blue="0.49803921569999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="128" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o1e-kQ-zvu">
-                                        <rect key="frame" x="0.0" y="235" width="320" height="206"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="128" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="o1e-kQ-zvu">
+                                        <rect key="frame" x="0.0" y="235" width="320" height="333"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="128" id="bxK-F5-557">
@@ -680,7 +680,6 @@
                                 <constraints>
                                     <constraint firstItem="44J-xL-SmL" firstAttribute="top" secondItem="ZT3-xR-Idb" secondAttribute="top" id="1KK-60-0RI"/>
                                     <constraint firstAttribute="trailing" secondItem="44J-xL-SmL" secondAttribute="trailing" constant="-1" id="246-1o-Xhr"/>
-                                    <constraint firstAttribute="bottom" secondItem="o1e-kQ-zvu" secondAttribute="bottom" id="7uT-Bm-T0X"/>
                                     <constraint firstItem="kM9-Kb-UWf" firstAttribute="centerX" secondItem="o1e-kQ-zvu" secondAttribute="centerX" id="8lf-46-NSy"/>
                                     <constraint firstItem="Miz-e1-2kS" firstAttribute="leading" secondItem="ZT3-xR-Idb" secondAttribute="leading" constant="20" id="8wX-du-BrO"/>
                                     <constraint firstItem="o1e-kQ-zvu" firstAttribute="leading" secondItem="ZT3-xR-Idb" secondAttribute="leading" id="BEN-6v-j1u"/>
@@ -695,6 +694,7 @@
                                     <constraint firstItem="Miz-e1-2kS" firstAttribute="top" secondItem="1XE-yR-JfV" secondAttribute="bottom" constant="5" id="QQm-0T-0hN"/>
                                     <constraint firstItem="NAj-dC-ylv" firstAttribute="centerY" secondItem="Miz-e1-2kS" secondAttribute="centerY" id="RBO-T8-XF1"/>
                                     <constraint firstItem="6QS-UN-7kb" firstAttribute="top" secondItem="1XE-yR-JfV" secondAttribute="bottom" constant="20" id="SpG-q6-1OE"/>
+                                    <constraint firstAttribute="bottom" secondItem="o1e-kQ-zvu" secondAttribute="bottom" id="Tab-VG-h7H"/>
                                     <constraint firstItem="huj-sh-v6r" firstAttribute="leading" secondItem="ZT3-xR-Idb" secondAttribute="leading" constant="20" id="YzO-Bx-2tZ"/>
                                     <constraint firstItem="kM9-Kb-UWf" firstAttribute="centerY" secondItem="Miz-e1-2kS" secondAttribute="centerY" id="bwN-Ld-ubH"/>
                                     <constraint firstItem="jBx-wp-1ea" firstAttribute="centerY" secondItem="6QS-UN-7kb" secondAttribute="centerY" id="f6t-aV-pQH"/>
@@ -720,6 +720,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="v4W-Cy-gaa"/>
                     <connections>
+                        <outlet property="followersLabel" destination="NAj-dC-ylv" id="TIi-4o-lRr"/>
+                        <outlet property="followingLabel" destination="kM9-Kb-UWf" id="RJk-Kj-QbZ"/>
+                        <outlet property="handleLabel" destination="1XE-yR-JfV" id="Lic-8l-QN9"/>
+                        <outlet property="tweetsCountLabel" destination="Miz-e1-2kS" id="9i3-bh-wsu"/>
                         <outlet property="usernameLabel" destination="U5n-Kx-daL" id="aTg-2J-59K"/>
                     </connections>
                 </viewController>
