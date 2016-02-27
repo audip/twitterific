@@ -134,14 +134,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         if let cell = sender as? UITableViewCell{
             let indexPath = tableView.indexPathForCell(cell)
+            let tweet = tweets![indexPath!.row]
+
             if segue.identifier == "TweetDetails"{
                 print("Tweet details screen")
-                let tweet = tweets![indexPath!.row]
-                
                 let tweetDetailsViewController = segue.destinationViewController as! TweetDetailsViewController
                 tweetDetailsViewController.tweet = tweet
             } else if segue.identifier == "UserProfile" {
                 print("UserProfile screen")
+                let userProfileViewController = segue.destinationViewController as! UserProfileViewController
+                userProfileViewController.user = tweet.user
             }
         }
     }
