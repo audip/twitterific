@@ -80,34 +80,60 @@ class TweetCell: UITableViewCell {
             return String(minute) + "m"
         }
     }
-
+    
     @IBAction func onRetweet(sender: AnyObject) {
-        print("Retweet button clicked")
-        print("Retweet Status: \(retweetStatus)")
-        if retweetStatus == false{
-            retweetCountLabel.text = "\(Int(retweetCountLabel.text!)! + 1)"
-            retweetStatus = true
-            self.retweetButton.selected = true
-        }
-        else {
-            retweetCountLabel.text = "\(Int(retweetCountLabel.text!)! - 1)"
-            retweetStatus = false
-            self.retweetButton.selected = false
+        if retweetStatus == false {
+            TwitterClient.sharedInstance.retweetWithTweetID(["tweet_id": tweet.tweetID!], completion: { (response, error) -> Void in
+                if (error == nil) {
+                    self.retweetCountLabel.text = "\(Int(self.retweetCountLabel.text!)! + 1)"
+                    self.retweetStatus = true
+                    self.retweetButton.selected = true
+                    print("Tweet retweeted")
+                } else {
+                    print("Retweet failed: \(error!.description)")
+                }
+                
+            })
+        } else {
+            TwitterClient.sharedInstance.unretweetWithTweetID(["tweet_id": tweet.tweetID!], completion: { (response, error) -> Void in
+                if (error == nil) {
+                    self.retweetCountLabel.text = "\(Int(self.retweetCountLabel.text!)! - 1)"
+                    self.retweetStatus = false
+                    self.retweetButton.selected = false
+                    print("Tweet unretweeted")
+                } else {
+                    print("Unretweet failed: \(error!.description)")
+                }
+            })
         }
         
     }
+
     @IBAction func onFavorite(sender: AnyObject) {
-        print("Favorite button clicked")
-        print("Favorite Status: \(favoriteStatus)")
         if favoriteStatus == false{
-            favoriteCountLabel.text = "\(Int(favoriteCountLabel.text!)! + 1)"
-            favoriteStatus = true
-            self.favoriteButton.selected = true
+            TwitterClient.sharedInstance.favoriteWithTweetID(["tweet_id": tweet.tweetID!], completion: { (response, error) -> Void in
+                if (error == nil) {
+                    self.favoriteCountLabel.text = "\(Int(self.favoriteCountLabel.text!)! + 1)"
+                    self.favoriteStatus = true
+                    self.favoriteButton.selected = true
+                    print("Tweet favorited")
+                } else {
+                    print("Favorite failed: \(error!.description)")
+                }
+                
+            })
         }
         else {
-            favoriteCountLabel.text = "\(Int(favoriteCountLabel.text!)! - 1)"
-            favoriteStatus = false
-            self.favoriteButton.selected = false
+            TwitterClient.sharedInstance.unretweetWithTweetID(["tweet_id": tweet.tweetID!], completion: { (response, error) -> Void in
+                if (error == nil) {
+                    self.favoriteCountLabel.text = "\(Int(self.favoriteCountLabel.text!)! - 1)"
+                    self.favoriteStatus = false
+                    self.favoriteButton.selected = false
+                    print("Tweet favorited")
+                } else {
+                    print("Unfavorite failed: \(error!.description)")
+                }
+            })
         }
     }
 
