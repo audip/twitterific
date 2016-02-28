@@ -769,11 +769,11 @@
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <connections>
-                                                    <outlet property="favoriteButton" destination="OlO-yT-6XY" id="3OQ-U4-eL8"/>
+                                                    <outlet property="favoriteButton" destination="OlO-yT-6XY" id="dRS-dk-55x"/>
                                                     <outlet property="favoriteCountLabel" destination="KNa-uO-dkh" id="gXw-rG-zJ4"/>
                                                     <outlet property="nameLabel" destination="Ups-lB-Fbt" id="LYk-IG-Foh"/>
                                                     <outlet property="profileImageView" destination="FYO-ef-2EY" id="lrt-Gi-0R0"/>
-                                                    <outlet property="retweetButton" destination="xYD-o9-at7" id="rGd-i3-RD8"/>
+                                                    <outlet property="retweetButton" destination="xYD-o9-at7" id="gGb-oJ-xCl"/>
                                                     <outlet property="retweetCountLabel" destination="uGw-4k-HOa" id="wEr-ry-IXE"/>
                                                     <outlet property="timestampLabel" destination="lgX-Lo-OzY" id="kOg-eP-P4t"/>
                                                     <outlet property="tweetTextLabel" destination="Jyp-NY-yoj" id="psB-Jh-VWE"/>

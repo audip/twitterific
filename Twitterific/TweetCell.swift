@@ -125,7 +125,7 @@ class TweetCell: UITableViewCell {
             })
         }
         else {
-            TwitterClient.sharedInstance.unretweetWithTweetID(["id": tweet.tweetID!], completion: { (response, error) -> Void in
+            TwitterClient.sharedInstance.unfavoriteWithTweetID(["id": tweet.tweetID!], completion: { (response, error) -> Void in
                 if (error == nil) {
                     self.favoriteCountLabel.text = "\(Int(self.favoriteCountLabel.text!)! - 1)"
                     self.favoriteStatus = false
