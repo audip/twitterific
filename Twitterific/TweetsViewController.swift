@@ -73,6 +73,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         cell.contentView.layer.cornerRadius = 5
         cell.contentView.layer.masksToBounds = true
         
+        let userProfileTapAction = UITapGestureRecognizer(target: self, action: "profileTap:")
+        cell.profileImageView.tag = indexPath.row
+        cell.profileImageView.userInteractionEnabled = true
+        cell.profileImageView.addGestureRecognizer(userProfileTapAction)
+        
+        let tweetDetailsTapAction = UITapGestureRecognizer(target: self, action: "tweetTextTap:")
+        cell.tweetTextLabel.tag = indexPath.row
+        cell.tweetTextLabel.userInteractionEnabled = true
+        cell.tweetTextLabel.addGestureRecognizer(tweetDetailsTapAction)
+        
         return cell
     }
 
@@ -100,15 +110,42 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func newTweet() {
         
     }
+    func profileTap(sender: UITapGestureRecognizer){
+        if sender.state != .Ended{
+            return
+        }
+        let index = sender.view?.tag
+        if let index = index{
+            let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as! TweetCell
+            self.performSegueWithIdentifier("UserProfile", sender: cell);
+        }
+    }
+    func tweetTextTap(sender: UITapGestureRecognizer){
+        if sender.state != .Ended{
+            return
+        }
+        let index = sender.view?.tag
+        if let index = index{
+            let cell = tableView.cellForRowAtIndexPath(NSIndexPath(forRow: index, inSection: 0)) as! TweetCell
+            self.performSegueWithIdentifier("TweetDetails", sender: cell);
+        }
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        let cell = sender as! UITableViewCell
-        let indexPath = tableView.indexPathForCell(cell)
-        let tweet = tweets![indexPath!.row]
-        
-        let tweetDetailsViewController = segue.destinationViewController as! TweetDetailsViewController
-        tweetDetailsViewController.tweet = tweet
-        
+        if let cell = sender as? UITableViewCell{
+            let indexPath = tableView.indexPathForCell(cell)
+            let tweet = tweets![indexPath!.row]
+
+            if segue.identifier == "TweetDetails"{
+                print("Tweet details screen")
+                let tweetDetailsViewController = segue.destinationViewController as! TweetDetailsViewController
+                tweetDetailsViewController.tweet = tweet
+            } else if segue.identifier == "UserProfile" {
+                print("UserProfile screen")
+                let userProfileViewController = segue.destinationViewController as! UserProfileViewController
+                userProfileViewController.user = tweet.user
+            }
+        }
     }
 
     /*
