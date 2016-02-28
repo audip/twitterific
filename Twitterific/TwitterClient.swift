@@ -48,7 +48,38 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
         
     }
+    
+//    func sendNewTweet(tweet: String, params: NSDictionary?, completion: (response: NSDictionary?,error :NSError?)->()) {
+//        var parameters = [String: AnyObject]()
+//        parameters["status"] = tweet
+//        if let params = params{
+//            for (key,value) in params{
+//                parameters[key as! String] = value
+//            }
+//        }
+//        TwitterClient.sharedInstance.POST("1.1/statuses/update.json", parameters: parameters, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+//            
+//            completion(response: response as? NSDictionary,error: nil)
+//            
+//        }) { (operation: NSURLSessionDataTask?, error:NSError) -> Void in
+//            
+//            completion(response: nil, error: error)
+//        }
+//        
+//    }
+    func sendNewTweet(params: NSDictionary?, completion: (response: NSDictionary?,error :NSError?)->()) {
 
+        TwitterClient.sharedInstance.POST("1.1/statuses/update.json", parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            
+            completion(response: response as? NSDictionary,error: nil)
+            
+        }) { (operation: NSURLSessionDataTask?, error:NSError) -> Void in
+            
+            completion(response: nil,error: error)
+        }
+        
+    }
+    
     func loginWithCompletion(completion: (user: User?, error: NSError?) -> ()) {
         loginCompletion = completion
         

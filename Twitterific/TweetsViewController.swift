@@ -107,9 +107,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         User.currentUser?.logout()
     }
     
-    func newTweet() {
-        
-    }
     func profileTap(sender: UITapGestureRecognizer){
         if sender.state != .Ended{
             return
