@@ -55,6 +55,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             self.tweets = tweets
             self.tableView.reloadData()
         })
+        print(User.currentUser!)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -141,6 +142,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 print("UserProfile screen")
                 let userProfileViewController = segue.destinationViewController as! UserProfileViewController
                 userProfileViewController.user = tweet.user
+            }
+        } else {
+            if let userViewController = segue.destinationViewController as? UserProfileViewController{
+                userViewController.user = User.currentUser!
             }
         }
     }
