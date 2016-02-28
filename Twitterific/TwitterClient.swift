@@ -73,14 +73,14 @@ class TwitterClient: BDBOAuth1SessionManager {
         }
     }
     func favoriteWithTweetID(params: NSDictionary?, completion: (response: NSDictionary?,error :NSError?)->()) {
-        TwitterClient.sharedInstance.POST("1.1/statuses/favorites/create.json", parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+        TwitterClient.sharedInstance.POST("1.1/favorites/create.json", parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
             completion(response: response as? NSDictionary,error: nil)
         }) { (operation: NSURLSessionDataTask?, error:NSError) -> Void in
             completion(response: nil, error: error)
         }
     }
     func unfavoriteWithTweetID(params: NSDictionary?, completion: (response: NSDictionary?,error :NSError?)->()) {
-        TwitterClient.sharedInstance.POST("1.1/statuses/favorites/destroy.json", parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
+        TwitterClient.sharedInstance.POST("1.1/favorites/destroy.json", parameters: params, progress: nil, success: { (operation: NSURLSessionDataTask, response: AnyObject?) -> Void in
             completion(response: response as? NSDictionary,error: nil)
         }) { (operation: NSURLSessionDataTask?, error:NSError) -> Void in
             completion(response: nil, error: error)
