@@ -142,12 +142,17 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
                 print("UserProfile screen")
                 let userProfileViewController = segue.destinationViewController as! UserProfileViewController
                 userProfileViewController.user = tweet.user
+            } else if segue.identifier == "TweetBack" {
+                print("TweetBack Screen")
+                let composeTweetViewController = segue.destinationViewController as! ComposeTweetViewController
+                print("@\(tweet.user!.screenname!)")
+                composeTweetViewController.defaultText = "@\(tweet.user!.screenname!)"
+                composeTweetViewController.tweetTextView.text = "@\(tweet.user!.screenname!)"
             }
-        } else {
-            if let userViewController = segue.destinationViewController as? UserProfileViewController{
-                userViewController.user = User.currentUser!
-            }
-        }
+        } else if segue.identifier == "currentUserProfile"{
+            let userProfileViewController = segue.destinationViewController as! UserProfileViewController
+            userProfileViewController.user = User.currentUser!
+        } 
     }
 
     /*

@@ -40,7 +40,6 @@ class TweetDetailsViewController: UIViewController {
         screennameLabel.text = tweet.user!.name!
         usernameLabel.text = "@\(tweet.user!.screenname!)"
         tweetLabel.text = tweet.text!
-        //timestampLabel.text = "\(tweet.createdAt!)"
         timestampLabel.text = "\(tweet.createdAt!)"
         retweetLabel.text = "\(tweet.retweetedCount!)"
         likeLabel.text = "\(tweet.favoriteCount!)"
@@ -60,28 +59,59 @@ class TweetDetailsViewController: UIViewController {
         
     }
     @IBAction func onRetweet(sender: AnyObject) {
-        if retweetStatus == false{
-            retweetLabel.text = "\(Int(retweetLabel.text!)! + 1)"
-            retweetStatus = true
-            self.retweetButton.selected = true
+        if retweetStatus == false {
+            TwitterClient.sharedInstance.retweetWithTweetID(["tweet_id": tweet.tweetID!], completion: { (response, error) -> Void in
+                if (error == nil) {
+                    self.retweetLabel.text = "\(Int(self.retweetLabel.text!)! + 1)"
+                    self.retweetStatus = true
+                    self.retweetButton.selected = true
+                    print("Tweet retweeted")
+                } else {
+                    print("Retweet failed: \(error!.description)")
+                }
+                
+            })
+        } else {
+            TwitterClient.sharedInstance.unretweetWithTweetID(["tweet_id": tweet.tweetID!], completion: { (response, error) -> Void in
+                if (error == nil) {
+                    self.retweetLabel.text = "\(Int(self.retweetLabel.text!)! - 1)"
+                    self.retweetStatus = false
+                    self.retweetButton.selected = false
+                    print("Tweet unretweeted")
+                } else {
+                    print("Unretweet failed: \(error!.description)")
+                }
+            })
         }
-        else {
-            retweetLabel.text = "\(Int(retweetLabel.text!)! - 1)"
-            retweetStatus = false
-            self.retweetButton.selected = false
-        }
-
+        
     }
+    
+    
     @IBAction func onFavorite(sender: AnyObject) {
         if favoriteStatus == false{
-            likeLabel.text = "\(Int(likeLabel.text!)! + 1)"
-            favoriteStatus = true
-            self.favoriteButton.selected = true
+            TwitterClient.sharedInstance.favoriteWithTweetID(["id": tweet.tweetID!], completion: { (response, error) -> Void in
+                if (error == nil) {
+                    self.likeLabel.text = "\(Int(self.likeLabel.text!)! + 1)"
+                    self.favoriteStatus = true
+                    self.favoriteButton.selected = true
+                    print("Tweet favorited")
+                } else {
+                    print("Favorite failed: \(error!.description)")
+                }
+                
+            })
         }
         else {
-            likeLabel.text = "\(Int(likeLabel.text!)! - 1)"
-            favoriteStatus = false
-            self.favoriteButton.selected = false
+            TwitterClient.sharedInstance.unretweetWithTweetID(["id": tweet.tweetID!], completion: { (response, error) -> Void in
+                if (error == nil) {
+                    self.likeLabel.text = "\(Int(self.likeLabel.text!)! - 1)"
+                    self.favoriteStatus = false
+                    self.favoriteButton.selected = false
+                    print("Tweet favorited")
+                } else {
+                    print("Unfavorite failed: \(error!.description)")
+                }
+            })
         }
     }
 
