@@ -108,6 +108,7 @@ class TweetCell: UITableViewCell {
         }
         
     }
+    
 
     @IBAction func onFavorite(sender: AnyObject) {
         if favoriteStatus == false{

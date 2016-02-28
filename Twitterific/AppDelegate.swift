@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "userDidLogout", name: userDidLogoutNotification, object: nil)
+        UINavigationBar.appearance().barStyle = .Black
+        
         
         if User.currentUser != nil {
             // Go to logged in screen 

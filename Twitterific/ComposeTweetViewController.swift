@@ -17,7 +17,7 @@ class ComposeTweetViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(defaultText)
         // Do any additional setup after loading the view.
         tweetTextView.text = defaultText
         tweetTextView.becomeFirstResponder()
